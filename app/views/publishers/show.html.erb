@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
+
+<h1><%= @publisher.name %></h1>
+
+<ul>
+  <% cache @shop_stats do %>
+    <% @shop_stats.each do |shop_stat| %>
+      <% cache shop_stat do %>
+        <strong><font size="3em"><%= shop_stat.shop.name %></font></strong> Total books sold: <%= shop_stat.total_mark %>
+        <% cache @book_stats do %>
+          <% @book_stats.where(shop_id: shop_stat.shop.id).each do |book_stat| %>
+            <% cache book_stat do %>
+              <li>
+                <p>
+                  <strong>Title:</strong>
+                  <%= book_stat.book.title %> <br>Copies sold: <%= book_stat.books_sold_count %><br>
+                  Copies in stock: <%= book_stat.copies_in_stock %>
+                </p>
+              </li>
+            <% end %>
+            <br>
+          <% end %>
+        <% end %> 
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>
+
+
+<%= link_to 'Edit', edit_publisher_path(@publisher) %> |
+<%= link_to 'Back', publishers_path %>

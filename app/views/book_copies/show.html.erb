@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Copies in stock:</strong>
+  <%= @book_copy.copies_in_stock %>
+</p>
+
+<p>
+  <strong>Books sold count:</strong>
+  <%= @book_copy.books_sold_count %>
+</p>
+
+<p>
+  <strong>Shop:</strong>
+  <%= @book_copy.shop.name %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @book_copy.book.title %>
+</p>
+
+<%= link_to 'Edit', edit_book_copy_path(@book_copy) %> |
+<%= link_to 'Back', book_copies_path %>

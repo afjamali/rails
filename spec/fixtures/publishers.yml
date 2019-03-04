@@ -1,0 +1,9 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Houghton Mifflin Harcourt
+ 
+two:
+  name: Arthur A. Levine Books
+  

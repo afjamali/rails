@@ -1,0 +1,13 @@
+> rails g scaffold Publisher name:string
+
+> rake db:migrate
+
+> rails g scaffold Book title:string publisher:belongs_to
+
+... add .name to publisher in books#show and index
+
+in Publisher model ... has_many :books, dependent: :destroy
+
+> rails g scaffold Shop name:string 
+
+> rails g scaffold BookCopy copies_in_stock:integer books_sold_count:integer shop:references book:belongs_to 
